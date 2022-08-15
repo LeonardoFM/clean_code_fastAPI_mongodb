@@ -1,1 +1,2 @@
 from .vehicles.create_vehicle_factory import create_vehicle_factory
+from .vehicles.list_vehicle_by_id_factory import list_vehicle_by_id_factory
