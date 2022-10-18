@@ -1,2 +1,3 @@
-from .vehicles.create_vehicle import CreateVehicle
-from .vehicles.list_vehicle_by_id import ListVehicleById
+from .vehicles.create_vehicle import CreateVehicleUsecase
+from .vehicles.list_vehicles import ListVehicleUsecase
+from .vehicles.consult_vehicles import ConsultVehicleByIdUsecase

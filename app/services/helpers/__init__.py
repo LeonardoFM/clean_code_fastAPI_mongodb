@@ -1,1 +1,1 @@
-from .http import HttpResponse
+from .http import HttpResponse, HttpError

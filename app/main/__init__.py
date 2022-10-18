@@ -1,1 +1,1 @@
-from .routes import routes
+from .routes import vehicles_routes
