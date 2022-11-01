@@ -3,3 +3,5 @@ uvicorn==0.18.2
 pymongo==4.2.0
 python-dotenv==0.20.0
 pymongo[srv]
+pytest==7.2.0
+pytest-cov==4.0.0
