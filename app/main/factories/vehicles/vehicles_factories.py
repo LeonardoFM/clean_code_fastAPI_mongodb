@@ -3,7 +3,8 @@ from app.domain.usecases import UseCase
 
 from app.services.usecases import (ListVehicleUsecase,
                                    ConsultVehicleByIdUsecase,
-                                   CreateVehicleUsecase)
+                                   CreateVehicleUsecase,
+                                   UpdateVehicleUsecase)
 
 
 def create_vehicle_factory() -> UseCase:
@@ -16,3 +17,7 @@ def list_vehicles_factory() -> UseCase:
 
 def consult_vehicle_by_id_factory(_id: str) -> UseCase:
     return ConsultVehicleByIdUsecase(_id)
+
+
+def update_vehicle_by_id_factory(_id: str):
+    return UpdateVehicleUsecase()

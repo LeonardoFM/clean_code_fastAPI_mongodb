@@ -4,7 +4,10 @@ from fastapi import APIRouter, Header, Response, Path
 
 from app.main.adapters import fast_api_adapter
 from app.domain.params import VehiclesParams
-from app.main.factories import create_vehicle_factory, list_vehicles_factory, consult_vehicle_by_id_factory
+from app.main.factories import (create_vehicle_factory,
+                                list_vehicles_factory,
+                                consult_vehicle_by_id_factory,
+                                update_vehicle_by_id_factory)
 
 
 vehicles_router = APIRouter(
@@ -59,7 +62,7 @@ def list_vehicles(
         'query': None,
         'body': {}
     }
-    result = fast_api_adapter(http_request, list_vehicle_by_id_factory())
+    result = fast_api_adapter(http_request, list_vehicles_factory())
     response.status_code = result.status_code
     if result.body:
         return result.body
@@ -87,6 +90,33 @@ def list_vehicle(
         'body': {}
     }
     result = fast_api_adapter(http_request, consult_vehicle_by_id_factory(_id))
+    response.status_code = result.status_code
+    if result.body:
+        return result.body
+    return response
+
+
+@vehicles_router.get(
+    '/update/{_id}',
+    responses={
+        HTTPStatus.OK.value: {
+            'description': 'Atualiza veículo incluído na base do transporte'
+        },
+    },
+    summary='Efetua a atualização de cadastro de um veículo',
+    description='É possível atualizar veículos de transporte',
+    status_code=HTTPStatus.OK.value,
+)
+def update_vehicle(
+    response: Response,
+    _id: str = Path(...)
+):
+    http_request = {
+        'headers': None,
+        'query': None,
+        'body': {}
+    }
+    result = fast_api_adapter(http_request, update_vehicle_by_id_factory(_id))
     response.status_code = result.status_code
     if result.body:
         return result.body

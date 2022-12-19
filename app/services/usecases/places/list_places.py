@@ -1,9 +1,10 @@
 from http import HTTPStatus
 
+
 from app.domain.usecases import UseCase
 from app.services.helpers.http import HttpError, HttpResponse
 
 
-class CreateVehicleUsecase(UseCase):
+class ListPlacesUsecase(UseCase):
     def execute(self, params: dict) -> HttpResponse:
-        return HttpResponse(HTTPStatus.CREATED, {'task_code': params})
+        return HttpResponse(HTTPStatus.OK, {'task_code': params})
